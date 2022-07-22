@@ -1,0 +1,133 @@
+{
+    "id": "4be929d53f7f5ce0",
+    "type": "subflow",
+    "name": "shiftrio",
+    "info": "",
+    "category": "network",
+    "in": [],
+    "out": [
+        {
+            "x": 340,
+            "y": 80,
+            "wires": [
+                {
+                    "id": "ce72adc92b1d0181",
+                    "port": 0
+                }
+            ]
+        }
+    ],
+    "env": [
+        {
+            "name": "topic",
+            "type": "str",
+            "value": "nodered",
+            "ui": {
+                "icon": "font-awesome/fa-server",
+                "type": "input",
+                "opts": {
+                    "types": [
+                        "str"
+                    ]
+                }
+            }
+        }
+    ],
+    "meta": {
+        "module": "node-red-contrib-shiftrio",
+        "type": "shiftrio",
+        "version": "0.0.1",
+        "author": "Kazuhito Yokoi <kazuhitoyokoi@nodered.jp>",
+        "desc": "A node to connect to shiftrio.io via MQTT over WebSocket",
+        "keywords": "node-red,mqtt,shiftrio",
+        "license": "Apache-2.0"
+    },
+    "color": "#3FADB5",
+    "icon": "node-red/bridge.svg",
+    "status": {
+        "x": 340,
+        "y": 140,
+        "wires": [
+            {
+                "id": "d68c607d9dc518c1",
+                "port": 0
+            }
+        ]
+    },
+    "flow": [
+        {
+            "id": "d68c607d9dc518c1",
+            "type": "status",
+            "z": "4be929d53f7f5ce0",
+            "name": "",
+            "scope": [
+                "ce72adc92b1d0181"
+            ],
+            "x": 200,
+            "y": 140,
+            "wires": [
+                []
+            ]
+        },
+        {
+            "id": "ce72adc92b1d0181",
+            "type": "mqtt in",
+            "z": "4be929d53f7f5ce0",
+            "name": "",
+            "topic": "${topic}",
+            "qos": "2",
+            "datatype": "auto-detect",
+            "broker": "c0de84795d1bc4a6",
+            "nl": false,
+            "rap": true,
+            "rh": 0,
+            "inputs": 0,
+            "x": 190,
+            "y": 80,
+            "wires": [
+                []
+            ]
+        },
+        {
+            "id": "c0de84795d1bc4a6",
+            "type": "mqtt-broker",
+            "z": "4be929d53f7f5ce0",
+            "name": "",
+            "broker": "mqtt://public:public@public.cloud.shiftr.io",
+            "port": "1883",
+            "clientid": "",
+            "autoConnect": true,
+            "usetls": false,
+            "protocolVersion": "4",
+            "keepalive": "60",
+            "cleansession": true,
+            "birthTopic": "",
+            "birthQos": "0",
+            "birthPayload": "",
+            "birthMsg": {},
+            "closeTopic": "",
+            "closeQos": "0",
+            "closePayload": "",
+            "closeMsg": {},
+            "willTopic": "",
+            "willQos": "0",
+            "willPayload": "",
+            "willMsg": {},
+            "userProps": "",
+            "sessionExpiry": ""
+        },
+        {
+            "id": "2e389191fb7f2a59",
+            "type": "subflow:4be929d53f7f5ce0",
+            "z": "c77c96f68363f049",
+            "name": "",
+            "x": 290,
+            "y": 360,
+            "wires": [
+                [
+                    "a7561edca0ca393e"
+                ]
+            ]
+        }
+    ]
+}
